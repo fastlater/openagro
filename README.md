@@ -1,1 +1,2 @@
-# openagro
+### OpenAgro
+> This is an open source project for manage farms in Brazil and the main goal is to be a easy to use tool, effective in the field and help farmers understand their companies better and do not cost anything.
