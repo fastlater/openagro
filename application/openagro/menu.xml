@@ -40,9 +40,9 @@
     <menuitem label='Cadastros'>
         <icon>fa:university fa-fw</icon>
         <menu>
-              <menuitem label='Pais'>
+              <menuitem label='Country'>
                   <icon>fa:file-code-o fa-fw</icon>
-                  <action>CoountryForm</action>
+                  <action>CountryList</action>
               </menuitem>
         </menu>
     </menuitem>

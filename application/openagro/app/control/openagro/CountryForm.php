@@ -3,7 +3,7 @@
  * CountryForm Registration
  * @author  Rafael Gonzaga
  */
-class CountryForm extends TPage
+class CountryForm extends TWindow
 {
     protected $form; // form
     
@@ -16,6 +16,7 @@ class CountryForm extends TPage
     function __construct()
     {
         parent::__construct();
+        parent::setSize(540, 270);
         
         $this->setDatabase('openagro');              // defines the database
         $this->setActiveRecord('Country');     // defines the active record
@@ -61,7 +62,7 @@ class CountryForm extends TPage
         
         // vertical box container
         $container = new TVBox;
-        $container->style = 'width: 90%';
+        $container->style = 'width: 100%';
         // $container->add(new TXMLBreadCrumb('menu.xml', __CLASS__));
         $container->add(TPanelGroup::pack('Title', $this->form));
         
