@@ -25,7 +25,7 @@ class CountryList extends TStandardList
         // parent::setCriteria($criteria) // define a standard filter
 
         parent::addFilterField('id', '=', 'id'); // filterField, operator, formField
-        parent::addFilterField('descr', 'like', 'descr'); // filterField, operator, formField
+        parent::addFilterField('description', 'like', 'description'); // filterField, operator, formField
         
         // creates the form
         $this->form = new TQuickForm('form_search_Country');
@@ -37,12 +37,12 @@ class CountryList extends TStandardList
 
         // create the form fields
         $id = new TEntry('id');
-        $descr = new TEntry('descr');
+        $description = new TEntry('description');
 
 
         // add the fields
         $this->form->addQuickField('ID', $id,  '100%' );
-        $this->form->addQuickField('Country', $descr,  '100%' );
+        $this->form->addQuickField('Country', $description,  '100%' );
 
         
         // keep the form filled during navigation with session data
@@ -63,22 +63,22 @@ class CountryList extends TStandardList
 
         // creates the datagrid columns
         $column_id = new TDataGridColumn('id', 'ID', 'left');
-        $column_descr = new TDataGridColumn('descr', 'Country', 'left');
+        $column_description = new TDataGridColumn('description', 'Country', 'left');
 
 
         // add the columns to the DataGrid
         $this->datagrid->addColumn($column_id);
-        $this->datagrid->addColumn($column_descr);
+        $this->datagrid->addColumn($column_description);
 
 
         // creates the datagrid column actions
-        $order_descr = new TAction(array($this, 'onReload'));
-        $order_descr->setParameter('order', 'descr');
-        $column_descr->setAction($order_descr);
+        $order_description = new TAction(array($this, 'onReload'));
+        $order_description->setParameter('order', 'description');
+        $column_description->setAction($order_description);
         
 
         // define the transformer method over image
-        $column_descr->setTransformer( function($value, $object, $row) {
+        $column_description->setTransformer( function($value, $object, $row) {
             return strtoupper($value);
         });
 
