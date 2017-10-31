@@ -18,6 +18,7 @@ class FarmBlock extends TRecord
         parent::__construct($id, $callObjectLoad);
         parent::addAttribute('id');
         parent::addAttribute('description');
+        parent::addAttribute('farm_id');
     }
 
     

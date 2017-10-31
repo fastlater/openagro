@@ -20,6 +20,8 @@ class State extends TRecord
         parent::__construct($id, $callObjectLoad);
         parent::addAttribute('id');
         parent::addAttribute('description');
+        parent::addAttribute('code');
+        parent::addAttribute('abreviation');
         parent::addAttribute('country_id');
     }
 

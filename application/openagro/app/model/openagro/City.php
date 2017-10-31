@@ -20,6 +20,7 @@ class City extends TRecord
         parent::__construct($id, $callObjectLoad);
         parent::addAttribute('id');
         parent::addAttribute('description');
+        parent::addAttribute('code');
         parent::addAttribute('state_id');
     }
 
@@ -53,13 +54,13 @@ class City extends TRecord
 
     
     /**
-     * Method getFarms
+     * Method getAddresss
      */
-    public function getFarms()
+    public function getAddresss()
     {
         $criteria = new TCriteria;
         $criteria->add(new TFilter('city_id', '=', $this->id));
-        return Farm::getObjects( $criteria );
+        return Address::getObjects( $criteria );
     }
     
 

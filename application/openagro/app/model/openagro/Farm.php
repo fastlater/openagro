@@ -10,7 +10,6 @@ class Farm extends TRecord
     const IDPOLICY =  'max'; // {max, serial}
     
     
-    private $city;
     private $farm_blocks;
 
     /**
@@ -21,36 +20,10 @@ class Farm extends TRecord
         parent::__construct($id, $callObjectLoad);
         parent::addAttribute('id');
         parent::addAttribute('description');
-        parent::addAttribute('city_id');
+        parent::addAttribute('area');
+        parent::addAttribute('address_id');
     }
 
-    
-    /**
-     * Method set_city
-     * Sample of usage: $farm->city = $object;
-     * @param $object Instance of City
-     */
-    public function set_city(City $object)
-    {
-        $this->city = $object;
-        $this->city_id = $object->id;
-    }
-    
-    /**
-     * Method get_city
-     * Sample of usage: $farm->city->attribute;
-     * @returns City instance
-     */
-    public function get_city()
-    {
-        // loads the associated object
-        if (empty($this->city))
-            $this->city = new City($this->city_id);
-    
-        // returns the associated object
-        return $this->city;
-    }
-    
     
     /**
      * Method addFarmBlock
@@ -96,7 +69,7 @@ class Farm extends TRecord
      */
     public function load($id)
     {
-        $this->farm_blocks = parent::loadAggregate('FarmBlock', 'FarmFarmBlock', 'farm_id', 'farm_block_id', $id);
+        $this->farm_blocks = parent::loadComposite('FarmBlock', 'farm_id', $id);
     
         // load the object itself
         return parent::load($id);
@@ -110,7 +83,7 @@ class Farm extends TRecord
         // store the object itself
         parent::store();
     
-        parent::saveAggregate('FarmFarmBlock', 'farm_id', 'farm_block_id', $this->id, $this->farm_blocks);
+        parent::saveComposite('FarmBlock', 'farm_id', $this->id, $this->farm_blocks);
     }
 
     /**
@@ -120,7 +93,7 @@ class Farm extends TRecord
     public function delete($id = NULL)
     {
         $id = isset($id) ? $id : $this->id;
-        parent::deleteComposite('FarmFarmBlock', 'farm_id', $id);
+        parent::deleteComposite('FarmBlock', 'farm_id', $id);
     
         // delete the object itself
         parent::delete($id);
