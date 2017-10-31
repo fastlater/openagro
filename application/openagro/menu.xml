@@ -37,7 +37,7 @@
         </menu>
     </menuitem>
     
-    <menuitem label='Cadastros'>
+    <menuitem label='_t{Forms}'>
         <icon>fa:university fa-fw</icon>
         <menu>
               <menuitem label='Country'>
