@@ -6,3 +6,5 @@ In this project I'll be using a framework called "Adianti Framework". It has a l
 [ Adianti Framewrok ](http://www.adianti.com/framework-features)
 
 ### Mobile
+
+For the mobile module of this project, I'll using mostly Xamarin and I'll be studying to use NativeScript.
